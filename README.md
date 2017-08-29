@@ -20,10 +20,35 @@ FSM은 유한상태기계(Finite State Machine)의 약자이다.
 - 각종 통신 프로토콜 S/W
 - 많은 로직이 구현되는 게임시스템
  
-3.     구현로직
+### 구현로직
 이 예제는 FSM을 구현하는 방법에서 Table을 이용하여 Event와 State를 관리하는 방법을 설명한다.
+
+![](http://postfiles12.naver.net/20110827_11/adsloader_13144399807078MELr_PNG/1.PNG?type=w2)
 
 - Table을 이용하여 Event와 State를 관리 
 - 각 상황에 따른 핸들러 작성
+
+### makefile
+~~~makefile
+OBJECTS = main.o fsm.o main_fsm.o
+SRCS = main.c fsm.c main_fsm.c
+ 
+CC = gcc
+CFLAGS = -g -c
+ 
+TARGET =fsm 
+ 
+$(TARGET) : $(OBJECTS)
+	$(CC) -o $(TARGET) -g $(OBJECTS)
+ 
+clean : 
+	rm -f $(OBJECTS) $(TARGET)
+~~~
+![](/data/make.gif)
+
+### debugging
+![](/data/fsm_debug.gif)
+
+
 
 [원본블로그](http://blog.naver.com/adsloader/50119456326)
